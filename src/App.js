@@ -21,8 +21,8 @@ class App extends Component {
     })
   }
 
-  showSomeAlert = ()=>{
-    alert("Hello! I am an alert box!");
+  showSomeAlert = (msg)=>{
+    alert(msg);
   }
   render() {
     return (
@@ -31,7 +31,8 @@ class App extends Component {
           <Person name={this.state.people[0].name} />
           <Person name={this.state.people[1].name} />
           <Person name={this.state.people[2].name} click={this.onChangeNameHandler}>Team Leader</Person>
-          <button onClick={this.showSomeAlert}>Click Me</button>
+          <button onClick={this.showSomeAlert.bind(this, 'The recommended way')}>Click Me 1</button>
+          <button onClick={()=>this.showSomeAlert('Not the recommended way to bind, has performance issue ')}>Click Me 2</button>
           <button onClick={this.onChangeNameHandler}>Change Me</button>
       </div>
     );
