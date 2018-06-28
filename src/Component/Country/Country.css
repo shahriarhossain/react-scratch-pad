@@ -1,0 +1,13 @@
+.Country {
+    width: 60%;
+    margin: 16px auto;
+    border: 2px solid #eee;
+    padding: 60px;
+    text-align: center;
+}
+
+.Country img {
+    width: 120px;
+    height: 80px;
+    margin: 5px auto;
+}
