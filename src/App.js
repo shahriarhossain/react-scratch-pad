@@ -42,16 +42,22 @@ class App extends Component {
   }
 
   render() {
+    let People = null;
+  
+    if(this.state.showList){
+         People = (
+          <div>
+            <Person name={this.state.people[0].name}  />
+            <Person name={this.state.people[1].name} setNewName={this.onChangeSetNewNameHandler} />
+            <Person name={this.state.people[2].name} click={this.onChangeNameHandler}>Team Leader</Person>
+          </div>
+        )
+    }
+
     return (
       <div className="App">
           <h1>Hi! This is from React app</h1>
-          {this.state.showList ?
-            <div>
-              <Person name={this.state.people[0].name}  />
-              <Person name={this.state.people[1].name} setNewName={this.onChangeSetNewNameHandler} />
-              <Person name={this.state.people[2].name} click={this.onChangeNameHandler}>Team Leader</Person>
-            </div> : null
-          }
+          {People}
           <button onClick={this.showSomeAlert.bind(this, 'The recommended way')}>Click Me 1</button>
           <button onClick={()=>this.showSomeAlert('Not the recommended way to bind, has performance issue ')}>Click Me 2</button>
           <button onClick={this.onChangeNameHandler}>Change Me</button>
