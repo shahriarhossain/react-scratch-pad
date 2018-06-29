@@ -5,6 +5,7 @@ import Country from './Component/Country/Country';
 import LogoBD from './Component/Country/Content/Bangladesh.png';
 import LogoFR from './Component/Country/Content/France.png';
 import LogoSP from './Component/Country/Content/Spain.png';
+import ErrorBoundary from './Component/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   state = {
@@ -81,11 +82,14 @@ class App extends Component {
         <div>
           {
             this.state.country.map((country, index)=>{
-              return <Country 
-                  name={country.name} 
-                  flag={country.flag} 
-                  key = {country.id}
-                  onDelete={this.onDeleteHandler.bind(this, index)}  />
+              return (
+                <ErrorBoundary key = {country.id}>
+                  <Country 
+                    name={country.name} 
+                    flag={country.flag} 
+                    onDelete={this.onDeleteHandler.bind(this, index)}  /> 
+                </ErrorBoundary>
+              )
             })
           }
         </div>
