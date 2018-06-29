@@ -15,9 +15,9 @@ class App extends Component {
     ],
     showList : true,
     country:[
-      {name: 'Bangladesh', flag: LogoBD},
-      {name: 'Spain', flag: LogoSP},
-      {name: 'France', flag: LogoFR}
+      {id: '23rfs', name: 'Bangladesh', flag: LogoBD},
+      {id: 'SDv4#', name: 'Spain', flag: LogoSP},
+      {id: 'j3a@l', name: 'France', flag: LogoFR}
     ],
     showCountryList : false
   }
@@ -81,7 +81,11 @@ class App extends Component {
         <div>
           {
             this.state.country.map((country, index)=>{
-              return <Country name={country.name} flag={country.flag} onDelete={this.onDeleteHandler.bind(this, index)}  />
+              return <Country 
+                  name={country.name} 
+                  flag={country.flag} 
+                  key = {country.id}
+                  onDelete={this.onDeleteHandler.bind(this, index)}  />
             })
           }
         </div>
