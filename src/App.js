@@ -56,6 +56,12 @@ class App extends Component {
     this.setState({showCountryList : !currentStatus});
   }
 
+  onDeleteHandler = (index)=>{
+    const existingCountryList = this.state.country.slice();
+    existingCountryList.splice(index, 1);
+    this.setState({country : existingCountryList});
+  }
+
   render() {
     let People = null;
   
@@ -74,8 +80,8 @@ class App extends Component {
       CountryList = (
         <div>
           {
-            this.state.country.map(country=>{
-              return <Country name={country.name} flag={country.flag}/>
+            this.state.country.map((country, index)=>{
+              return <Country name={country.name} flag={country.flag} onDelete={this.onDeleteHandler.bind(this, index)}  />
             })
           }
         </div>

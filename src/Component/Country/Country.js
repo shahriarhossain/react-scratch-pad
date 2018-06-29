@@ -6,6 +6,7 @@ const country = (props)=>{
         <div className="Country">
             <p>{props.name}</p>
             <img src={props.flag} alt={props.name}/>
+            <button onClick={props.onDelete}/>
         </div>
     )
 }
