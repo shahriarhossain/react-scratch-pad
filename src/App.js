@@ -6,6 +6,7 @@ import LogoBD from './Component/Country/Content/Bangladesh.png';
 import LogoFR from './Component/Country/Content/France.png';
 import LogoSP from './Component/Country/Content/Spain.png';
 import ErrorBoundary from './Component/ErrorBoundary/ErrorBoundary';
+import Radium from 'radium';
 
 class App extends Component {
   state = {
@@ -67,7 +68,11 @@ class App extends Component {
     const style = {
       backgroundColor: 'green',
       color:'white',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover' :{
+        backgroundColor: 'greenyellow',
+        color:'black'
+      }
     }
     let People = null;
   
@@ -111,6 +116,10 @@ class App extends Component {
         </div>
       )
       style.backgroundColor = 'red';
+      style[':hover'] ={
+        backgroundColor: 'salmon',
+        color:'black'
+      }
     }
 
     return (
@@ -128,4 +137,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
