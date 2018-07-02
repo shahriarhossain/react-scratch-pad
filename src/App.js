@@ -81,10 +81,21 @@ class App extends Component {
         )
     }
 
+    let countryLengthDesign = [];
+    if(this.state.country.length<=2){
+      console.log(this.state.country.length);
+      countryLengthDesign.push('red');
+    }
+    if(this.state.country.length<=1){
+      console.log(this.state.country.length);
+      countryLengthDesign.push('bold');
+    }
+
     let CountryList = null;
     if(this.state.showCountryList){
       CountryList = (
         <div>
+          <div className={countryLengthDesign.join(' ')}><p>We have total {this.state.country.length} country enlisted</p></div>
           {
             this.state.country.map((country, index)=>{
               return (
