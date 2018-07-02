@@ -64,6 +64,11 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'green',
+      color:'white',
+      cursor: 'pointer'
+    }
     let People = null;
   
     if(this.state.showList){
@@ -94,6 +99,7 @@ class App extends Component {
           }
         </div>
       )
+      style.backgroundColor = 'red';
     }
 
     return (
@@ -105,7 +111,7 @@ class App extends Component {
           <button onClick={()=>this.showSomeAlert('Not the recommended way to bind, has performance issue ')}>Click Me 2</button>
           <button onClick={this.onChangeNameHandler}>Change Me</button>
           <button onClick={this.onToggleChangeHandler}>Toggle List</button>
-          <button onClick={this.CountryVisibilityHandler}>Toggle Country</button>
+          <button style={style} onClick={this.CountryVisibilityHandler}>Toggle Country</button>
       </div>
     );
   }
